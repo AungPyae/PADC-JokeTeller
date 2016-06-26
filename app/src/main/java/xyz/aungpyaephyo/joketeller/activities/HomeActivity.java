@@ -175,4 +175,6 @@ public class HomeActivity extends AppCompatActivity
         btnPreviousJoke.setVisibility(View.VISIBLE);
         return true;
     }
+
+
 }

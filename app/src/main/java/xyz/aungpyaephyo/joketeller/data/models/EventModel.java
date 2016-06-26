@@ -25,7 +25,7 @@ public class EventModel {
     private List<EventVO> eventList;
 
     private EventModel(){
-        eventList = initializeEventList();
+            eventList = initializeEventList();
     }
 
     public static EventModel getInstance(){
