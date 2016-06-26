@@ -26,13 +26,14 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <xyz.aungpyaephyo.joketeller.components.textviews.MMTextView
-                    android:id="@+id/tv_title"
+                    android:id="@+id/tv_screen_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_large"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/app_name_mm"
-                    android:textSize="@dimen/text_heading_1x" />
+                    android:textSize="@dimen/screen_title_size"
+                    android:text="@string/left_menu_har_tha_pa_day_thar"
+                    />
 
             </android.support.v7.widget.Toolbar>
 
@@ -88,12 +89,12 @@
         </RelativeLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/fab_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_share_black_24dp"
+            android:src="@drawable/ic_search_black_24dp"
             android:visibility="gone" />
 
     </android.support.design.widget.CoordinatorLayout>

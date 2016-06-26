@@ -4,16 +4,16 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/drawer_home"
+            android:id="@+id/left_menu_har_tha_pa_day_thar"
             android:checked="true"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/left_menu_har_tha_pa_day_thar"
             />
 
         <item
-            android:id="@+id/drawer_favourite"
+            android:id="@+id/left_menu_phandeeyar"
             android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="@string/favourite"/>
+            android:title="@string/left_menu_phandeeyar"/>
 
         <item
             android:id="@+id/drawer_downloaded"

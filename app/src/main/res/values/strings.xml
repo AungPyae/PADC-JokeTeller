@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Har-Tha-Pa-Day-Thar</string>
-    <string name="app_name_mm">ဟာသ ပေဒသာ</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_share">Share the Joke</string>
@@ -43,9 +42,11 @@ Russia သေဌး။ ။ စံအိမ္ပိုင္ရွင္သေ�
     <string name="msg_search_jokes_guide">သင္ရွာေဖြလိုုေသာ ဟာသ အမ်ိဳးအစား သိုု့မဟုုတ္ ေရးသားသူ၏ နံမည္ျဖင့္ရွာေဖြနိုုင္ပါသည္</string>
 
     <string name="left_menu_har_tha_pa_day_thar">ဟာသ ပေဒသာ</string>
-    <string name="favourite">Favourite</string>
+    <string name="left_menu_phandeeyar">ဖန္တီးရာ</string>
     <string name="downloaded">Downloaded</string>
     <string name="more">More</string>
     <string name="settings">Settings</string>
+
+    <string name="lbl_register_me">Register Me!</string>
 
 </resources>

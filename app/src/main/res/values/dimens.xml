@@ -22,6 +22,9 @@
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
 
+    <dimen name="screen_title_size">22sp</dimen>
+
     <dimen name="margin_bottom_home_fab">60dp</dimen>
     <dimen name="status_bar_height">25dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
 </resources>
