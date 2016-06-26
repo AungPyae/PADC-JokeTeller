@@ -147,7 +147,7 @@ public class HomeActivity extends AppCompatActivity {
                 tvSearchGuide.setVisibility(View.INVISIBLE);
                 flContainer.setVisibility(View.VISIBLE);
                 btnNextJoke.setVisibility(View.VISIBLE);
-                btnPreviousJoke.setVisibility(View.INVISIBLE);
+                btnPreviousJoke.setVisibility(View.VISIBLE);
                 return true;
             }
         });
