@@ -10,6 +10,7 @@ import java.util.List;
 import xyz.aungpyaephyo.joketeller.JokeTellerApp;
 import xyz.aungpyaephyo.joketeller.R;
 import xyz.aungpyaephyo.joketeller.data.vos.EventVO;
+import xyz.aungpyaephyo.joketeller.fragments.EventFragment;
 import xyz.aungpyaephyo.joketeller.views.holders.EventViewHolder;
 
 /**
@@ -19,16 +20,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     private LayoutInflater inflater;
     private List<EventVO> eventList;
+    private EventFragment.ControllerEventItem mEventItemController;
 
-    public EventAdapter(List<EventVO> eventList) {
+    public EventAdapter(List<EventVO> eventList, EventFragment.ControllerEventItem eventItemController) {
         inflater = LayoutInflater.from(JokeTellerApp.getContext());
         this.eventList = eventList;
+        mEventItemController = eventItemController;
     }
 
     @Override
     public EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.view_item_event, parent, false);
-        final EventViewHolder eventVH = new EventViewHolder(view);
+        final EventViewHolder eventVH = new EventViewHolder(view, mEventItemController);
         return eventVH;
     }
 

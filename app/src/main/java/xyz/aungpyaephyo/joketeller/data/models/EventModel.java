@@ -24,12 +24,12 @@ public class EventModel {
 
     private List<EventVO> eventList;
 
-    private EventModel(){
-            eventList = initializeEventList();
+    private EventModel() {
+        eventList = initializeEventList();
     }
 
-    public static EventModel getInstance(){
-        if(objInstance == null) {
+    public static EventModel getInstance() {
+        if (objInstance == null) {
             objInstance = new EventModel();
         }
 
@@ -54,5 +54,14 @@ public class EventModel {
 
     public List<EventVO> getEventList() {
         return eventList;
+    }
+
+    public EventVO getEventByTitle(String eventTitle) {
+        for (EventVO event : eventList) {
+            if (event.getEventTitle().equals(eventTitle)) {
+                return event;
+            }
+        }
+        return null;
     }
 }

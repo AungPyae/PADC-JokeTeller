@@ -105,36 +105,6 @@ public class HomeActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
 
-        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
-        MenuItemCompat.setOnActionExpandListener(searchMenuItem, new MenuItemCompat.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                tvSearchGuide.setVisibility(View.VISIBLE);
-                flContainer.setVisibility(View.INVISIBLE);
-                btnNextJoke.setVisibility(View.INVISIBLE);
-                btnPreviousJoke.setVisibility(View.INVISIBLE);
-                return true;
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                tvSearchGuide.setVisibility(View.INVISIBLE);
-                flContainer.setVisibility(View.VISIBLE);
-                btnNextJoke.setVisibility(View.VISIBLE);
-                btnPreviousJoke.setVisibility(View.VISIBLE);
-                return true;
-            }
-        });
-
-        MenuItem shareItem = menu.findItem(R.id.action_share);
-        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(createShareIntent());
-        } else {
-            Snackbar.make(flContainer, "ShareActionProvider is being null. Why ?", Snackbar.LENGTH_SHORT)
-                    .setAction("Action", null).show();
-        }
-
         return true;
     }
 
@@ -168,6 +138,11 @@ public class HomeActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    private void navigateToImageLoading() {
+        Intent intent = ImageLoadingActivity.newIntent();
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(final MenuItem menuItem) {
         menuItem.setChecked(true);
@@ -183,6 +158,8 @@ public class HomeActivity extends AppCompatActivity
                     case R.id.left_menu_phandeeyar:
                         navigateToPhandeeyar();
                         break;
+                    case R.id.left_menu_image_loading:
+                        navigateToImageLoading();
 
                 }
             }
