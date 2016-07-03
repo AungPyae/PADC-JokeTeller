@@ -91,7 +91,9 @@ public class ImageLoadingActivity extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 String imageUrl = args[0];
-                bitmap = BitmapFactory.decodeStream((InputStream) new URL(imageUrl).getContent());
+                URL url = new URL(imageUrl);
+                InputStream inputStream = (InputStream) url.getContent();
+                bitmap = BitmapFactory.decodeStream(inputStream);
 
             } catch (Exception e) {
                 e.printStackTrace();

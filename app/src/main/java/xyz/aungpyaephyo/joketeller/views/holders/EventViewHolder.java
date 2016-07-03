@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import xyz.aungpyaephyo.joketeller.R;
 import xyz.aungpyaephyo.joketeller.data.vos.EventVO;
 import xyz.aungpyaephyo.joketeller.fragments.EventFragment;
@@ -16,23 +18,27 @@ import xyz.aungpyaephyo.joketeller.fragments.EventFragment;
  */
 public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    private TextView tvEventTitle;
-    private ImageView ivStockPhoto;
-    private TextView tvEventDesc;
-    private TextView tvEventTime;
+    @Bind(R.id.tv_event_title)
+    TextView tvEventTitle;
+
+    @Bind(R.id.iv_stock_photo)
+    ImageView ivStockPhoto;
+
+    @Bind(R.id.tv_event_desc)
+    TextView tvEventDesc;
+
+    @Bind(R.id.tv_event_time)
+    TextView tvEventTime;
 
     private EventVO mEvent;
     private EventFragment.ControllerEventItem mEventItemController;
 
     public EventViewHolder(View view, EventFragment.ControllerEventItem eventItemController) {
         super(view);
+        ButterKnife.bind(this, view);
+
         view.setOnClickListener(this);
         mEventItemController = eventItemController;
-
-        tvEventTitle = (TextView) view.findViewById(R.id.tv_event_title);
-        ivStockPhoto = (ImageView) view.findViewById(R.id.iv_stock_photo);
-        tvEventDesc = (TextView) view.findViewById(R.id.tv_event_desc);
-        tvEventTime = (TextView) view.findViewById(R.id.tv_event_time);
     }
 
     public void setData(EventVO event) {
@@ -46,6 +52,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnC
                 .load(event.getStockPhotoPath())
                 .centerCrop()
                 .placeholder(R.drawable.stock_photo_placeholder)
+                .error(R.drawable.stock_photo_placeholder)
                 .into(ivStockPhoto);
     }
 

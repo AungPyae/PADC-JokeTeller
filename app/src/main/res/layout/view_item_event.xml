@@ -29,6 +29,7 @@
             android:scaleType="centerCrop"
             android:layout_marginTop="@dimen/margin_medium"
             android:adjustViewBounds="true"
+            android:src="@drawable/stock_photo_placeholder"
             />
 
         <TextView
