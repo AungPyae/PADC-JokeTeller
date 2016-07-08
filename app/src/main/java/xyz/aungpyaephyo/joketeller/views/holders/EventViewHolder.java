@@ -58,6 +58,6 @@ public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     @Override
     public void onClick(View view) {
-        mEventItemController.onTapEvent(mEvent);
+        mEventItemController.onTapEvent(mEvent, ivStockPhoto);
     }
 }

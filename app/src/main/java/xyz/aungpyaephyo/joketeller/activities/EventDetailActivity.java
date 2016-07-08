@@ -1,6 +1,8 @@
 package xyz.aungpyaephyo.joketeller.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
@@ -38,13 +40,13 @@ public class EventDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ivEventPhoto = (ImageView) findViewById(R.id.iv_event_backdrop);
+        ivEventPhoto = (ImageView) findViewById(R.id.iv_stock_photo);
         tvEventDesc = (TextView) findViewById(R.id.tv_event_desc);
         tvEventTime = (TextView) findViewById(R.id.tv_event_time);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_accent_24dp);
         }
@@ -52,8 +54,8 @@ public class EventDetailActivity extends AppCompatActivity {
         String eventTitle = getIntent().getStringExtra(IE_EVENT_TITLE);
 
         EventVO event = EventModel.getInstance().getEventByTitle(eventTitle);
-        if(event == null) {
-            throw new RuntimeException("Can't find Event obj with the title : "+eventTitle);
+        if (event == null) {
+            throw new RuntimeException("Can't find Event obj with the title : " + eventTitle);
         } else {
             collapsingToolbar.setTitle(event.getEventTitle());
             tvEventDesc.setText(event.getEventDesc() + "\n\n" +
@@ -61,6 +63,7 @@ public class EventDetailActivity extends AppCompatActivity {
                     event.getEventDesc() + "\n\n" +
                     event.getEventDesc() + "\n\n" +
                     event.getEventDesc());
+            tvEventDesc.setMaxLines(Integer.MAX_VALUE);
             tvEventTime.setText(event.getEventTime()); //Friday, Feb 26, 1:00pm - 5:00pm
 
             Glide.with(ivEventPhoto.getContext())
@@ -68,6 +71,12 @@ public class EventDetailActivity extends AppCompatActivity {
                     .centerCrop()
                     .placeholder(R.drawable.stock_photo_placeholder)
                     .into(ivEventPhoto);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Context context = JokeTellerApp.getContext();
+            String transitionName = context.getResources().getString(R.string.event_stock_photo_shared_transition);
+            ivEventPhoto.setTransitionName(transitionName);
         }
     }
 

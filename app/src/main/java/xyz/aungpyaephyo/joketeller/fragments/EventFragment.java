@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import xyz.aungpyaephyo.joketeller.R;
 import xyz.aungpyaephyo.joketeller.adapters.EventAdapter;
@@ -68,6 +69,6 @@ public class EventFragment extends Fragment {
     }
 
     public interface ControllerEventItem {
-        void onTapEvent(EventVO event);
+        void onTapEvent(EventVO event, ImageView ivStockPhoto);
     }
 }
