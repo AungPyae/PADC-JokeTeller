@@ -43,10 +43,15 @@ Russia သေဌး။ ။ စံအိမ္ပိုင္ရွင္သေ�
 
     <string name="left_menu_har_tha_pa_day_thar">ဟာသ ပေဒသာ</string>
     <string name="left_menu_phandeeyar">ဖန္တီးရာ</string>
+    <string name="left_menu_image_loading">Network ဓါတ္ပုုံေတြ ျပပုုံ</string>
+
     <string name="downloaded">Downloaded</string>
     <string name="more">More</string>
     <string name="settings">Settings</string>
 
     <string name="lbl_register_me">Register Me!</string>
+    <string name="title_activity_event_detail">EventDetailActivity</string>
+
+    <string name="event_stock_photo_shared_transition">event_stock_photo_shared_transition</string>
 
 </resources>
