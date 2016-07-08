@@ -138,6 +138,11 @@ public class HomeActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    private void navigateToImageLoading() {
+        Intent intent = ImageLoadingActivity.newIntent();
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(final MenuItem menuItem) {
         menuItem.setChecked(true);
@@ -153,6 +158,8 @@ public class HomeActivity extends AppCompatActivity
                     case R.id.left_menu_phandeeyar:
                         navigateToPhandeeyar();
                         break;
+                    case R.id.left_menu_image_loading:
+                        navigateToImageLoading();
 
                 }
             }

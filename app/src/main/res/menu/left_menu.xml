@@ -16,9 +16,9 @@
             android:title="@string/left_menu_phandeeyar"/>
 
         <item
-            android:id="@+id/drawer_downloaded"
+            android:id="@+id/left_menu_image_loading"
             android:icon="@drawable/ic_file_download_black_24dp"
-            android:title="@string/downloaded"/>
+            android:title="@string/left_menu_image_loading"/>
 
         <item
             android:id="@+id/drawer_more"
