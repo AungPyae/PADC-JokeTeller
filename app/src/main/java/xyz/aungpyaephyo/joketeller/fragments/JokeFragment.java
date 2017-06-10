@@ -60,7 +60,7 @@ public class JokeFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             jokeIndex = bundle.getInt(BARG_JOKE_INDEX);
-            joke = JokeModel.getInstance().getJoke(jokeIndex);
+            joke = JokeModel.getInstance(getContext()).getJoke(jokeIndex);
         }
 
         setHasOptionsMenu(true);

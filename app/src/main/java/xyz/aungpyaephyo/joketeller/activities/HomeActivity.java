@@ -134,12 +134,12 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void navigateToPhandeeyar() {
-        Intent intent = EventActivity.newIntent();
+        Intent intent = EventActivity.newIntent(getApplicationContext());
         startActivity(intent);
     }
 
     private void navigateToImageLoading() {
-        Intent intent = ImageLoadingActivity.newIntent();
+        Intent intent = ImageLoadingActivity.newIntent(getApplicationContext());
         startActivity(intent);
     }
 

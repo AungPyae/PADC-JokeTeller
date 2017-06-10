@@ -1,5 +1,6 @@
 package xyz.aungpyaephyo.joketeller.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,8 +32,8 @@ public class EventActivity extends AppCompatActivity
     @Bind(R.id.fab_search)
     FloatingActionButton mFabSerach;
 
-    public static Intent newIntent() {
-        Intent intent = new Intent(JokeTellerApp.getContext(), EventActivity.class);
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, EventActivity.class);
         return intent;
     }
 
@@ -61,7 +62,7 @@ public class EventActivity extends AppCompatActivity
 
     @Override
     public void onTapEvent(EventVO event, ImageView ivStockPhoto) {
-        Intent intent = EventDetailActivity.newIntent(event.getEventTitle());
+        Intent intent = EventDetailActivity.newIntent(getApplicationContext(), event.getEventTitle());
         ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
                 new Pair(ivStockPhoto, getString(R.string.event_stock_photo_shared_transition)));
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle());

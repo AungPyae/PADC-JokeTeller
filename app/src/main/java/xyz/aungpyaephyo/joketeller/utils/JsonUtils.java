@@ -18,8 +18,6 @@ public class JsonUtils {
 
     private static JsonUtils objInstace;
 
-    private Context context;
-
     public static JsonUtils getInstance() {
         if (objInstace == null) {
             objInstace = new JsonUtils();
@@ -29,7 +27,7 @@ public class JsonUtils {
     }
 
     private JsonUtils() {
-        context = JokeTellerApp.getContext();
+
     }
 
     /**
@@ -39,7 +37,7 @@ public class JsonUtils {
      * @return
      * @throws IOException
      */
-    private byte[] readJsonFile(String fileName) throws IOException {
+    private byte[] readJsonFile(Context context, String fileName) throws IOException {
         InputStream inStream = context.getAssets().open(fileName);
         int size = inStream.available();
         byte[] buffer = new byte[size];
@@ -54,8 +52,8 @@ public class JsonUtils {
      * @throws IOException
      * @throws JSONException
      */
-    public String loadDummyData(String fileName) throws IOException, JSONException {
-        byte[] buffer = readJsonFile(PATH_DUMMY_DATA + "/" + fileName);
+    public String loadDummyData(Context context, String fileName) throws IOException, JSONException {
+        byte[] buffer = readJsonFile(context, PATH_DUMMY_DATA + "/" + fileName);
         return new String(buffer, "UTF-8").toString();
     }
 }

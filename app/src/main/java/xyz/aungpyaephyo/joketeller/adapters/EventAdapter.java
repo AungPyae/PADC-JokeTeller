@@ -1,5 +1,6 @@
 package xyz.aungpyaephyo.joketeller.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     private List<EventVO> eventList;
     private EventFragment.ControllerEventItem mEventItemController;
 
-    public EventAdapter(List<EventVO> eventList, EventFragment.ControllerEventItem eventItemController) {
-        inflater = LayoutInflater.from(JokeTellerApp.getContext());
+    public EventAdapter(Context context, List<EventVO> eventList, EventFragment.ControllerEventItem eventItemController) {
+        inflater = LayoutInflater.from(context);
         this.eventList = eventList;
         mEventItemController = eventItemController;
     }

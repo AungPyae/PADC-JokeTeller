@@ -18,20 +18,19 @@ public class JokeModel {
 
     private List<JokeVO> jokeList;
 
-    private JokeModel() {
-        jokeList = setUpInitialJokes();
+    private JokeModel(Context context) {
+        jokeList = setUpInitialJokes(context);
     }
 
-    public static JokeModel getInstance() {
+    public static JokeModel getInstance(Context context) {
         if (objInstance == null) {
-            objInstance = new JokeModel();
+            objInstance = new JokeModel(context);
         }
 
         return objInstance;
     }
 
-    private List<JokeVO> setUpInitialJokes() {
-        Context context = JokeTellerApp.getContext();
+    private List<JokeVO> setUpInitialJokes(Context context) {
 
         List<JokeVO> jokeList = new ArrayList<>();
         jokeList.add(new JokeVO(context.getString(R.string.joke_one_title), context.getString(R.string.joke_one_content), R.drawable.joke_1));

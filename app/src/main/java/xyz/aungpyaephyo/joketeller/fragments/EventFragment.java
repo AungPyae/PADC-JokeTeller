@@ -40,7 +40,7 @@ public class EventFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEventAdapter = new EventAdapter(EventModel.getInstance().getEventList(), mEventItemController);
+        mEventAdapter = new EventAdapter(getActivity(), EventModel.getInstance(getContext()).getEventList(), mEventItemController);
     }
 
     @Nullable

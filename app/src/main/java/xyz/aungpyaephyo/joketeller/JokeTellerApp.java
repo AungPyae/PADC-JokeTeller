@@ -13,4 +13,8 @@ public class JokeTellerApp extends Application {
         super.onCreate();
     }
 
+    public static Context getContext() {
+        return context;
+    }
+
 }

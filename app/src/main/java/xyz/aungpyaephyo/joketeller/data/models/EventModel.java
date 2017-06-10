@@ -1,5 +1,7 @@
 package xyz.aungpyaephyo.joketeller.data.models;
 
+import android.content.Context;
+
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
@@ -9,6 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import xyz.aungpyaephyo.joketeller.JokeTellerApp;
 import xyz.aungpyaephyo.joketeller.data.vos.EventVO;
 import xyz.aungpyaephyo.joketeller.utils.CommonInstances;
 import xyz.aungpyaephyo.joketeller.utils.JsonUtils;
@@ -24,23 +27,23 @@ public class EventModel {
 
     private List<EventVO> eventList;
 
-    private EventModel() {
-        eventList = initializeEventList();
+    private EventModel(Context context) {
+        eventList = initializeEventList(context);
     }
 
-    public static EventModel getInstance() {
+    public static EventModel getInstance(Context context) {
         if (objInstance == null) {
-            objInstance = new EventModel();
+            objInstance = new EventModel(context);
         }
 
         return objInstance;
     }
 
-    private List<EventVO> initializeEventList() {
+    private List<EventVO> initializeEventList(Context context) {
         List<EventVO> eventList = new ArrayList<>();
 
         try {
-            String dummyEventList = JsonUtils.getInstance().loadDummyData(DUMMY_EVENT_LIST);
+            String dummyEventList = JsonUtils.getInstance().loadDummyData(context, DUMMY_EVENT_LIST);
             Type listType = new TypeToken<List<EventVO>>() {
             }.getType();
             eventList = CommonInstances.getGsonInstance().fromJson(dummyEventList, listType);

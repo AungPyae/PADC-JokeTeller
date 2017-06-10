@@ -1,6 +1,7 @@
 package xyz.aungpyaephyo.joketeller.activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -32,8 +33,8 @@ public class ImageLoadingActivity extends AppCompatActivity {
     private ImageView ivWithAsync;
     private ImageView ivWithGlide;
 
-    public static Intent newIntent(){
-        Intent intent = new Intent(JokeTellerApp.getContext(), ImageLoadingActivity.class);
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context, ImageLoadingActivity.class);
         return intent;
     }
 

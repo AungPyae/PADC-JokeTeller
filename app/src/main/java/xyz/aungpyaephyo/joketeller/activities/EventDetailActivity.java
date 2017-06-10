@@ -27,8 +27,8 @@ public class EventDetailActivity extends AppCompatActivity {
     private TextView tvEventTime;
     private CollapsingToolbarLayout collapsingToolbar;
 
-    public static Intent newIntent(String eventTitle) {
-        Intent intent = new Intent(JokeTellerApp.getContext(), EventDetailActivity.class);
+    public static Intent newIntent(Context context, String eventTitle) {
+        Intent intent = new Intent(context, EventDetailActivity.class);
         intent.putExtra(IE_EVENT_TITLE, eventTitle);
         return intent;
     }
@@ -54,7 +54,7 @@ public class EventDetailActivity extends AppCompatActivity {
 
         String eventTitle = getIntent().getStringExtra(IE_EVENT_TITLE);
 
-        EventVO event = EventModel.getInstance().getEventByTitle(eventTitle);
+        EventVO event = EventModel.getInstance(getApplicationContext()).getEventByTitle(eventTitle);
         if (event == null) {
             throw new RuntimeException("Can't find Event obj with the title : " + eventTitle);
         } else {
@@ -75,8 +75,7 @@ public class EventDetailActivity extends AppCompatActivity {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Context context = JokeTellerApp.getContext();
-            String transitionName = context.getResources().getString(R.string.event_stock_photo_shared_transition);
+            String transitionName = getResources().getString(R.string.event_stock_photo_shared_transition);
             ivEventPhoto.setTransitionName(transitionName);
         }
     }
