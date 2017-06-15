@@ -17,8 +17,8 @@ import xyz.aungpyaephyo.joketeller.JokeTellerApp;
 public class MMFontUtils {
 
     private static Typeface mmTypeFace;
-    static {
-        Context context = JokeTellerApp.getContext();
+
+    public static  void initMMFontUtils(Context context) {
         mmTypeFace = Typeface.createFromAsset(context.getAssets(), "fonts/Zawgyi.ttf");
     }
 
